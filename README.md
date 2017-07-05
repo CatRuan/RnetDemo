@@ -1,5 +1,6 @@
-作者：catRuan（阮妹子）
-联系方式：QQ:940472401 邮箱：940472401@qq.com
+作者：catRuan（阮妹子）<br> 
+联系方式：QQ:940472401<br> 
+邮箱：940472401@qq.com<br> 
 ====
 # 一、什么是RNet？<br> 
 RNet是基于retrofit2和rxjava封装的一个网络请求框架。
@@ -25,7 +26,6 @@ eclipse： sorry暂时不提供下载jar包，复制粘贴吧 <br>  
 
 # 五、Rnet在代码里的使用（以2.0.0为例）：<br>
 ## ①、一RNet的初始化，建议在application中进行<br>
-<pre>
 public class MyApplication extends Application {  
   
     private HashMap<String, String> mHeaders;  
@@ -64,9 +64,7 @@ public class MyApplication extends Application {
     }  
   
 } 
-<code>
 ## ②、编写网络请求接口，这里以post、带进度的下载和不带进度的下载为例子<br> 
-<pre>
 public interface NetService {  
  
     @POST("http://v.juhe.cn/weather/forecast3h")  
@@ -81,50 +79,11 @@ public interface NetService {
     Observable<Response<ResponseBody>> downloadPro();//直接使用网址下载  
   
 } 
-<code>
 ## ③执行网络请求<br> 
 <pre>
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {  
-  
-    private Button mBtnDownload;  
-    private Button mBnDownLoadPro;  
-    private Button mBtnPost;  
-    private RNet mRNet;  
-    private NetService mNetService;  
-    private ProgressDialog mProgressDialog;//进度窗口  
-    public static final String SD_PATH = Environment.getExternalStorageDirectory() + "/";//  
-    private Subscription mDownloadSubscription;  
-    private Subscription mDownloadProSubscription;  
-    private Subscription mPostSubscription;  
-  
-    @Override  
-    protected void onCreate(Bundle savedInstanceState) {  
-        super.onCreate(savedInstanceState);  
-        setContentView(R.layout.activity_main);  
-        mRNet = MyApplication.getInstance().getRNet();  
-        mNetService = MyApplication.getInstance().getNetService();  
-        initView();  
-    }  
-  
-   ……  
-  
-    @Override  
-    public void onClick(View v) {  
-        switch (v.getId()) {  
-            case R.id.btnDownload:  
-                downLoad();  
-                break;  
-            case R.id.btnDownLoadPro:  
-                downloadPro();  
-                break;  
-            case R.id.btnPost:  
-                post();  
-                break;  
-        }  
-  
-    }  
-  
-    /** 
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {   
+      ……
+    /** 
      * 文件下载，不带进度。适合小文件，如图片 
      */  
     private void downLoad() {  
