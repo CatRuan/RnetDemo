@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="120dip"
+    android:layout_height="120dip"
+    android:background="@drawable/loading_corner"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <!--android:indeterminateDrawable是设置ProgressBar的图片，去掉就采用系统自带-->
+    <!--android:indeterminateDrawable="@drawable/loading_progress_rotate"-->
+    <ProgressBar
+        android:id="@+id/bar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:indeterminateDuration="700" />
+
+    <TextView
+        android:id="@+id/message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textColor="#FFFFFF" />
+
+</LinearLayout>
