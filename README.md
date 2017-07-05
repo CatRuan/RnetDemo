@@ -4,28 +4,28 @@
 # 一、什么是RNet？<br> 
 RNet是基于retrofit2和rxjava封装的一个网络请求框架。
 # 二、RNet的基本功能<br> 
-①、get请求
-②、post请求
-③、文件下载（不进度条）
-④、文件下载（带进度）
-⑤、Header的统一添加
-⑥、网络返回预处理
-⑦、会话保持（即cookie/session的自动化管理）
-⑧、HTTPS信任模式
-⑨、加载页选择显示和自动隐藏
-⑩、取消网络请求
+①、get请求<br> 
+②、post请求<br> 
+③、文件下载（不进度条）<br> 
+④、文件下载（带进度）<br> 
+⑤、Header的统一添加<br> 
+⑥、网络返回预处理<br> 
+⑦、会话保持（即cookie/session的自动化管理）<br> 
+⑧、HTTPS信任模式<br> 
+⑨、加载页选择显示和自动隐藏<br> 
+⑩、取消网络请求<br> 
 
 # 三、待添加的功能<br> 
-①、文件上传
-②、以比较优雅的方式取消网络请求
-# 四、RNet使用<br> 
-Rnet的引用：  Android stuodio   app的build.gradle中添加  compile 'com.rd:rnet:1.0'<br> 
-                                               最新版：compile 'com.rd:rnet:2.0.0'<br> 
-             eclipse  sorry暂时不提供下载jar包，复制粘贴吧 <br>   
-最新版本： 2.0.0(移除fastjson作为默认解析工具，改用Gson)<br> 
-Rnet在代码里的使用（以2.0.0为例）：
-①、一RNet的初始化，建议在application中进行<br> 
+①、文件上传<br> 
+②、以比较优雅的方式取消网络请求<br> 
+# 四、RNet引用<br> 
+Rnet的引用：<br>   
+Android stuodio： compile 'com.rd:rnet:2.0.0'//最新版<br> 
+eclipse： sorry暂时不提供下载jar包，复制粘贴吧 <br>   
 
+# 五、Rnet在代码里的使用（以2.0.0为例）：<br>
+## ①、一RNet的初始化，建议在application中进行<br>
+<pre>
 public class MyApplication extends Application {  
   
     private HashMap<String, String> mHeaders;  
@@ -63,12 +63,12 @@ public class MyApplication extends Application {
         return mNetService;  
     }  
   
-}  
-②、编写网络请求接口，这里以post、带进度的下载和不带进度的下载为例子<br> 
-[java] view plain copy
+} 
+<code>
+## ②、编写网络请求接口，这里以post、带进度的下载和不带进度的下载为例子<br> 
+<pre>
 public interface NetService {  
-  
-  
+ 
     @POST("http://v.juhe.cn/weather/forecast3h")  
     Observable<BaseResponse<RealResponse>> getPost(@Body RequestBody request);  
   
@@ -80,9 +80,10 @@ public interface NetService {
     @GET("http://dldir1.qq.com/qqfile/qq/QQ8.9.2/20760/QQ8.9.2.exe")  
     Observable<Response<ResponseBody>> downloadPro();//直接使用网址下载  
   
-}  
-③执行网络请求<br> 
-[java] view plain copy
+} 
+<code>
+## ③执行网络请求<br> 
+<pre>
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {  
   
     private Button mBtnDownload;  
@@ -225,3 +226,4 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
   
   
 }  
+<code>
